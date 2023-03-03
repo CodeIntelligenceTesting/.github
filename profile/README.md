@@ -2,7 +2,7 @@
 Welcome to Code Intelligence's organization on GitHub where we share our open-source projects and tutorials.
 
 ## :rocket: Projects
-- [CI Fuzz CLI](https://github.com/CodeIntelligenceTesting/cifuzz): CLI tool that fuzz tests as easy as unit tests. It helps you integrate and run fuzz tests into your project.
+- [CI Fuzz](https://github.com/CodeIntelligenceTesting/cifuzz): CLI tool that fuzz tests as easy as unit tests. It helps you integrate and run fuzz tests into your project.
 - [Jazzer](https://github.com/CodeIntelligenceTesting/jazzer): our fuzzing engine for the JVM platform. It helps you to integrate fuzz testing to your Java, Kotlin, and other JVM-based languages.
 - [Jazzer.js](https://github.com/CodeIntelligenceTesting/jazzer.js): our fuzzing engine for Node.js. It helps you to integrate fuzz testing into your JavaScript, TypeScript, and any language that can be transpiled into JavaScript.
 
