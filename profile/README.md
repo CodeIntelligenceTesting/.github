@@ -1,5 +1,5 @@
 ## Hello, World! :wave:
-Welcome to Code Intelligence's organization on GitHub where we share our open-source projects and tutorials.
+Welcome to Code Intelligence's organization on GitHub where we share our open-source projects, tutorials, and blog posts.
 
 ## :rocket: Projects
 - [CI Fuzz](https://github.com/CodeIntelligenceTesting/cifuzz): 
