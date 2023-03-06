@@ -1,5 +1,5 @@
 ## Hello, World! :wave:
-Welcome to Code Intelligence's organization on GitHub where we share our open-source projects, tutorials, and blog posts.
+Welcome to Code Intelligence's organization on GitHub, where we share our open-source projects, tutorials, and blog posts. At Code Intelligence, our mission is to enable developers to ship truly secure software people trust and rely on. Towards achieving this goal, we make significant parts of our technology available to the community as open source.
 
 ## :rocket: Projects
 - [CI Fuzz](https://github.com/CodeIntelligenceTesting/cifuzz): 
