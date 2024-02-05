@@ -1,15 +1,5 @@
 ## Hello, World! :wave:
-Welcome to Code Intelligence's organization on GitHub, where we share our open-source projects, tutorials, and blog posts. At Code Intelligence, our mission is to enable developers to ship truly secure software people trust and rely on. Towards achieving this goal, we make significant parts of our technology available to the community as open source.
-
-## :rocket: Projects
-- [CI Fuzz](https://github.com/CodeIntelligenceTesting/cifuzz): 
-  CLI tool to make fuzz tests as easy as unit tests. It helps you integrate and run fuzz tests into your project.
-- [Jazzer](https://github.com/CodeIntelligenceTesting/jazzer): 
-  Our fuzzing engine for the JVM platform. It helps you to integrate fuzz testing to your projects written in
-  Java, Kotlin, and other JVM-based languages.
-- [Jazzer.js](https://github.com/CodeIntelligenceTesting/jazzer.js): 
-  Our fuzzing engine for Node.js. It helps you to integrate fuzz testing into your projects written in
-  JavaScript, TypeScript, and any language that can be transpiled into JavaScript.
+Welcome to Code Intelligence's organization on GitHub, where we share demos, tutorials, and blog posts. At Code Intelligence, our mission is to enable developers to ship truly secure software people trust and rely on. In GitHub you will find various free information supplementing or supporting our commercial products CI Fuzz, CI Sense and CI Spark.
 
 ## :dart: Examples
 - [API Testing](https://github.com/CodeIntelligenceTesting/spring-boot-example):
