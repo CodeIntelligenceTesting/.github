@@ -4,7 +4,7 @@ Welcome to Code Intelligence's organization on GitHub, where we share demos, tut
 ## :dart: Examples
 - [API Testing](https://github.com/CodeIntelligenceTesting/spring-boot-example):
   A Spring Boot example showing how you can perform API testing using CI Fuzz JUnit integration.
-- [C/C++ Fuzz Testing](https://github.com/CodeIntelligenceTesting/c-cpp-demo): 
+- [C/C++ Fuzz Testing](https://github.com/CodeIntelligenceTesting/c-cpp-example): 
   An example showing how CI Fuzz can help you integrate fuzz testing into your CMake project.
 
 ## :writing_hand: Recent posts
