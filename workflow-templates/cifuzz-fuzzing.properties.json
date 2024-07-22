@@ -1,0 +1,11 @@
+{
+    "name": "Fuzzing with cifuzz",
+    "description": "Fuzzes your project with cifuzz.",
+    "iconName": "octicon rocket",
+    "categories": [
+        "Security"
+    ],
+    "filePatterns": [
+        "cifuzz.ya?ml$"
+    ]
+}
