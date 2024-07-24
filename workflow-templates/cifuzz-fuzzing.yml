@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      # Please comment-out the ones you don't need and uncomment the ones you do need
+      # Comment the ones you don't need and uncomment the ones you do need
 
       # Required to Upload findings to Github code scanning
       security-events: write
@@ -32,36 +32,72 @@ jobs:
       # contents: write
 
     steps:
-      # Adapt this if you are not running on a container with Debian-based distribution
-      - name: Install clang, llvm & lcov
+
+      # Adapt this to your package manager
+      - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install cmake clang llvm lcov
-          sudo apt install libclang-rt-dev || true # required on on ubuntu 24.04
-
-      - name: Checkout repository
-        uses: "actions/checkout@v4"
+          sudo apt install cmake clang llvm lcov rclone
 
       - name: Install cifuzz
-        uses: "CodeIntelligenceTesting/actions/install-cifuzz@v1"
+        uses: "zgtm/cifuzztest/install-cifuzz@HEAD"
         with:
           version: 3.12.0
           download-token: ${{ secrets.CIFUZZ_DOWNLOAD_TOKEN }}
 
+      - name: Checkout repository
+        uses: "actions/checkout@v4"
+
+      # Syncronise fuzzing corpus – uncomment and adapt to your storage method
+      #
+      # - name: Copy corpus from cloud storage
+      #   mkdir -p .cifuzz-corpus
+      #   rclone copy -v cloud-storage:corpora/PROJECT_NAME .cifuzz-corpus
+
       - name: Run fuzzing
-        uses: "CodeIntelligenceTesting/actions/run-fuzzing@v1"
+        uses: "zgtm/cifuzztest/run-fuzzing@HEAD"
         with:
           duration: 15s
 
-      - name: Upload code-scanning report
-        uses: "CodeIntelligenceTesting/actions/upload-code-scanning-report@v1"
+      # Syncronise fuzzing corpus – uncomment and adapt to your storage method
+      #
+      # - name: Copy corpus to cloud storage
+      #   rclone copy -v .cifuzz-corpus cloud-storage:corpora/PROJECT_NAME
 
-      # Uncomment this step if you want to commit all findings found when running this workflow:
+      - name: Upload code-scanning report
+        uses: "zgtm/cifuzztest/upload-code-scanning-report@HEAD"
+
+      # Uncomment this if you want findings commited to your repository
+      # Also add the required permission `contents: write` at the top of this document
+      #
       # - name: Commit findings and corpus to repository
       #   run: |
       #     git config --global user.name 'Github Action'
       #     git config --global user.email 'zgtm@users.noreply.github.com'
       #     git add .cifuzz-findings
-      #     git add .cifuzz-corpus
       #     git commit -m "Automated check-in of cifuzz findings"
       #     git push
+
+      - name: Generate artifacts
+        run: |
+          cifuzz coverage --format=html --output coverage_report --plain
+          cifuzz coverage --format=lcov --output lcov.info --plain
+          cifuzz findings --plain > findings.txt
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cifuzz-coverage
+          path: coverage_report
+
+      - name: Upload lcov report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cifuzz-coverage-lcov
+          path: lcov.info
+
+      - name: Upload findings report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cifuzz-findings
+          path: findings.txt
